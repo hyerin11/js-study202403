@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul id="fruits">
+    <li id="apple" class="f-item">사과</li>
+    <li id="banana" class="f-item">바나나</li>
+    <li id="grape" class="f-item">포도</li>
+    <li id="peach" class="f-item">복숭아</li>
+  </ul>
+
+  <script>
+
+   const $banana = document.getElementById('banana'); //id를 통해 요소를 가져오다.
+  //$붙여주기 : 여기에는 태그가 저장되어 있구나~! 관례임
+    console.log($banana.textContent); //바나나 출력
+    $banana.textContent = '바나나우유'; //수정
+    $banana.pet = '바나나원숭이';
+
+    
+    const $peach = document.getElementById('peach');
+    $peach.style['font-style'] = 'italic'; //스타일적용하면 인라인 스타일로 들어감.
+    //그래서 스크립트로 주면 점수가 올라가니까 모든 스타일 다 적용된다고 봐야 함.
+
+
+
+    //id가 grape인 요소노드객체를 취득하여
+    //배경색상을 violet색으로 조작하시오.
+    const $grape = document.getElementById('grape');
+    $grape.style['background-color']='violet';
+    //$grape.style.backgroundColor='violet';
+    $grape.style.width='fit-content';
+    $grape.style.color='#fff';
+    
+  </script>
+
+
+
+</body>
+</html>
