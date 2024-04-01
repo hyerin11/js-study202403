@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <ul class="users"> 
+    <li data-user-number="1234" data-role="admin">뽀로로</li>
+    <li data-user-number="4321" data-role="common">크롱</li>
+  </ul>
+
+  <script>
+    const [$user1, $user2] = [...document.querySelectorAll('.users li')];
+                              //배열로 바꾸기 위해서는 [... ]
+    const poporoNumber = $user1.dataset.userNumber;
+    console.log(poporoNumber); //1234
+    console.log(typeof poporoNumber); //string
+    //숫자로 변환하기 위해해서는 17번 줄에 +$user1.dataset.userNumber로 바꿔주기
+
+    const crong = $user2.dataset.role;
+    console.log(crong);//common
+
+    //수정
+    $user2.dataset.role = 'gold';
+
+    //추가
+    $user1.dataset.userPhoneNumber=`01012344321`;
+
+    //삭제
+     delete $user1.dataset.userNumber;
+  </script>
+
+
+
+</body>
+</html>
