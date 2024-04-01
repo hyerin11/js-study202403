@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+
+  <style>
+    .highlight{
+      color: blue;
+    }
+  </style>
+
+</head>
+<body>
+  
+  <div id="greet">
+    Hello <span class="highlight">World</span>
+  </div>
+
+  <ul id="food-list">
+    <li class="food">짜장</li>
+    <li class="food">짬뽕</li>
+    <li class="food">볶음밥</li>
+  </ul>
+
+
+
+
+  <script>
+    const $greet = document.getElementById('greet');
+    console.log($greet.textContent); //Hello World
+    console.log($greet.textContent.trim()); //공백제거 Hello World
+
+    $greet.textContent='안녕 자바스크립트:)'; //안녕 자바스크립트:)
+    //이렇게 텍스트 수정하면 자식태그 다 사라짐(안에 span있던거 사라짐)
+
+
+    //해결방안!! (안에 하이라이트는 그대로 유지하고 싶다!)
+    //방법1. innerHTML
+    $greet.innerHTML='안녕 <span class="highlight">자바스크립트:)</span>'; //안녕 자바스크립트:)
+    //방법2. 직접 넣어주기
+    //$greet.querySelector('.highlight').textContent='javascript:)';
+
+
+
+    //==================
+    const $foodList = document.getElementById('food-list');
+
+    //$foodList.innerHTML='<div>메롱</div>' //자식이 전부 사라지고 메롱으로 바뀜
+    //일괄수정으로 사용될 수 있음
+
+    //자식태그 추가
+    $foodList.innerHTML += '<li class="food">탕수육</li>';
+
+    //자식태그 전체 삭제
+    $foodList.innerHTML='';
+
+    const foods = ['새우', '연어', '조개', '문어'];
+    foods.forEach(f=>{
+      $foodList.innerHTML+=
+      `<li class="food">${f}</li>`;
+    });
+
+</script>
+
+</body>
+</html>

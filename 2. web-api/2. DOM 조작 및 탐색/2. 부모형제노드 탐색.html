@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <ul id="fruits">
+      <li class="fr apple">사과</li>
+      <li class="fr banana">바나나</li>
+      <li class="fr grape">포도</li>
+    </ul>
+  </div>
+
+
+  <div id="wrapper">
+    <section class="contents">
+      <ul class="list">
+        <li class="item"><a href="#" class="link">10</a></li>
+        <li class="item"><a href="#" class="link active">20</a></li>
+        <li class="item"><a href="#" class="link">30</a></li>
+      </ul>
+      <ul class="list">
+        <li class="item"><a href="#" class="link">40</a></li>
+        <li class="item"><a href="#" class="link">50</a></li>
+        <li class="item"><a href="#" class="link">60</a></li>
+      </ul>
+    </section>
+  </div>
+
+
+
+
+
+  <script>
+    const $ul = document.getElementById('fruits');
+
+    const $wrap = $ul.parentElement;
+    $wrap.style.background = 'orange';
+    $wrap.style.height = '100px';
+    $wrap.style.padding = '10px';
+
+
+    const [$apple, $banana, $grape]
+      = [...$wrap.firstElementChild.children];
+      //div.wrap의 첫째자식의.(ul)자식 = li
+      //[...] => 배열로 바꿔서 부실 수 있음. 그래서 각각 li값들이 위에 하나씩 들어감
+      //쿼리셀렉터 해도 됨.
+      // = [...document.querySelectorAll('fr')];
+      
+      console.log(document.querySelectorAll('.fr'));
+      $grape.style.color='white';
+
+
+
+      console.log($banana.nextElementSibling===$grape); //true
+      console.log($apple.nextElementSibling.nextElementSibling===$grape); //true
+
+
+      //active를 가지고 있는 20을 가져오려면--------------------------------------
+      const $active = document.querySelector('.active');
+//20을 가지고 60을 찾을 때
+console.log($active  // a = 20
+              .parentElement // li
+              .parentElement // ul
+              .nextElementSibling // ul2
+              .lastElementChild // li3
+              .firstElementChild // a = 60
+); 
+      
+//기준태그로부터 위로 올라가면서 탐색하는 함수
+//closet('css selector');
+const $contentSect = $active.closest('section.contents');
+console.log($contentSect); //섹션 콘텐츠 출력-----
+
+//아래방향 탐색하는 함수
+const $found = $contentSect.querySelector('ul.list:nth-child(2)')
+              .querySelector('li.item:last-child')
+             //섹션부터 출발해서~
+console.log($found); //li 60 출력-----
+
+  </script>
+
+
+</body>
+
+</html>
