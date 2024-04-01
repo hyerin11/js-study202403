@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <button id="btn">버튼</button>
+
+  <script>
+    const $btn = document.getElementById('btn');
+
+    //이벤트 핸들러
+    const HelloHandler = () => alert('안녕');
+
+    //$btn.onclick = HelloHandler;
+
+    //클릭하면!
+    $btn.addEventListener('click', HelloHandler); //여기에서는 on생력하고!
+    //색이 바뀌는거
+    $btn.addEventListener('click', ()=>{
+      $btn.style.background='aqua';
+    })
+    //두개의 함수가 동시에 일어남.
+
+    //기존 핸들러를 지우고 싶으면 수동으로 지워야 함.
+    //수동으로 지울 때는 반드시 핸들로가 기명함수(이름이 있는 함수)이어야 함.
+    // $btn.removeEventListener('click', HelloHandler);
+
+    // $btn.addEventListener('click', () => {
+    //   $btn.style.background='aqua';
+    // });
+    
+  </script>
+
+</body>
+</html>
