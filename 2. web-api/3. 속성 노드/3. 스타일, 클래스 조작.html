@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: orange;
+      font-size: 20px;
+      color: red;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .green {
+      color: greenyellow;
+      background: green;
+    }
+    .blue {
+      color: aqua;
+      background:blue;
+    }
+    .circle {
+      border-radius: 50%;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="box green" style="font-weight:700;">Hello</div>
+  <button id="add">변환</button>
+
+  <script>
+    const $box = document.querySelector('.box');
+    const $btn = document.getElementById('add');
+    
+
+    $box.style.fontStyle='italic';
+
+    //클래서 조작
+    //$box.className= 'box blue'; //하나의 문자열로 인식하기 떄문에 다시 한번 box속성을 앞에 써줘야ㅑ 함.
+    //$box.setAttribute('class', 'box blue'); //이것도 앞에 box를 써줘야 함.
+    //그래서 클래스를 직접 추가해줄 수 있는 방법이 좋은데
+    
+    //클래스 추가하기
+    $box.classList.add('circle');
+    $box.classList.add('aaa', 'bbb', 'ccc'); // 한번에 여러개 추가할 수 있음
+
+    //클래스 제거하기
+    $box.classList.remove('green');
+    $box.classList.remove('aaa', 'bbb', 'ccc');// 한번에 여러개 제거할 수 있음
+
+    $box.classList.add('green');
+
+    //클래스 교체하기(old, new)
+    $box.classList.replace('green', 'blue');//그린을 블루로 교체하고 싶어요
+
+    //클래스 존재 유무 확인
+    console.log($box.classList.contains('box')); //true
+    console.log($box.classList.contains('rapid')); //false
+
+//========================================
+
+$btn.addEventListener('click', () => {
+      // 현재 박스가 네모모양이면 원으로 변경
+      // 원이면 네모로 변경
+      
+      const CLASS_NAME = 'circle';
+      const boxClassList = $box.classList;
+      
+      boxClassList.toggle(CLASS_NAME);
+      //아래처럼 if else 안해도 됨
+      
+      // if ($box.classList.contains('CLASS_NAME')) {
+      //   $box.classList.remove('CLASS_NAME');
+      // } else {
+      //   $box.classList.add('CLASS_NAME');
+      // }
+    });
+
+
+  </script>
+
+
+</body>
+</html>
