@@ -4,11 +4,16 @@
 
 //이벤트 핸들러 바인딩
 $addBtn.addEventListener('click', e => {
-  //연산cjfl gkatn
-  calculate();
+  calculate('+');
 });
-$subtractBtn.addEventListener('click', e => {});
-$multiplyBtn.addEventListener('click', e => {});
-$divideBtn.addEventListener('click', e => {});
+$subtractBtn.addEventListener('click', e => {
+  calculate('-');
+});
+$multiplyBtn.addEventListener('click', e => {
+  calculate('*');
+});
+$divideBtn.addEventListener('click', e => {
+  calculate('/');
+});
 
 
