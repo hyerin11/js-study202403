@@ -35,14 +35,14 @@ function renderNewTodoElement({ id, text }) {
   // 2-3. li의 자식들 추가하기
   $newTodoLi.innerHTML = `
             <label class="checkbox">
-              <input type="checkbox">
-              <span class="text">${text}</span>
+            <input type="checkbox">
+            <span class="text">${text}</span>
             </label>
             <div class="modify">
-              <span class="lnr lnr-undo"></span>
+            <span class="lnr lnr-undo"></span>
             </div>
             <div class="remove">
-              <span class="lnr lnr-cross-circle"></span>
+            <span class="lnr lnr-cross-circle"></span>
             </div>
   `;
 
@@ -194,7 +194,7 @@ document.querySelector('.todo-list').addEventListener('click', (e) => {
     // 체크박스를 클릭하면
     // 체크 화면 렌더링 처리
     e.target.closest('.checkbox').classList.toggle('checked');
-    // 체크 데이터 처리
+    // 체크 데이터 처리+
     toggleDone(dataId);
   } else if (e.target.matches('.modify span')) {
     // console.log('수정 버튼 클릭함!');
