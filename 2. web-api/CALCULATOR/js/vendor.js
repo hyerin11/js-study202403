@@ -4,6 +4,11 @@ const SUB = '-';
 const MUL = 'x';
 const DIV = '/';
 
+// const ADD = '+';
+// const SUB = '-';
+// const MUL = 'x';
+// const DIV = '/';
+
 const $userInput = document.getElementById('input-number');
 
 const $addBtn = document.getElementById('btn-add');
